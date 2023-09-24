@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tugas3/transaction.dart';
 import 'package:tugas3/sidemenu.dart';
 import 'package:intl/intl.dart';
 import 'add_form.dart';
+import 'login_page.dart'; 
+import 'transaction.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +12,13 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeScreen());
+    return MaterialApp(
+      initialRoute: '/login', // Atur rute awal ke halaman login
+      routes: {
+        '/login': (context) => LoginPage(),
+        '/home': (context) => HomeScreen(),
+      },
+    );
   }
 }
 
@@ -57,8 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
       drawer: const Sidemenu(),
       body: isLoading
           ? Center(
-              child:
-                  CircularProgressIndicator(), 
+              child: CircularProgressIndicator(),
             )
           : ListView.builder(
               itemCount: data.length,
@@ -96,10 +102,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         'Amount: Rp. ${NumberFormat('###,###').format(int.parse(data[item]['amount']))}',
                       ),
                     ),
-                  ], 
-                ); 
+                  ],
+                );
               },
-            ), 
+            ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
@@ -109,8 +115,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           );
         },
-        child: Icon(Icons.add), 
-        backgroundColor: Colors.blue, 
+        child: Icon(Icons.add),
+        backgroundColor: Colors.blue,
       ),
     );
   }

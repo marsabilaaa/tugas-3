@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tugas_3/main.dart';
-import 'package:tugas_3/transaction.dart';
+import 'package:tugas3/main.dart';
+import 'package:tugas3/transaction.dart';
 import 'package:intl/intl.dart';
 
 class AddForm extends StatefulWidget {

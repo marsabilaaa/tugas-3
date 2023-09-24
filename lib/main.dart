@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tugas_3/transaction.dart';
+import 'package:tugas3/transaction.dart';
+import 'package:tugas3/sidemenu.dart';
 import 'package:intl/intl.dart';
 import 'add_form.dart';
 
@@ -53,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text('Flutter Apps'),
       ),
+      drawer: const Sidemenu(),
       body: isLoading
           ? Center(
               child:
